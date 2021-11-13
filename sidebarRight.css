@@ -1,0 +1,423 @@
+@import url(./style.css);
+
+.sidebar__right {
+  width: 33.33333%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  border-left: 1px solid rgba(204, 204, 204, 0.24);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.5s ease-in-out;
+}
+.sidebar__right.active {
+  right: 0;
+}
+.header__right {
+  width: 100%;
+  height: 70px;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  white-space: nowrap;
+  border-radius: 40px;
+  padding: 4px 5px;
+  background-color: rgba(204, 204, 204, 0.24);
+}
+.header__text p {
+  font-size: 1rem;
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 40px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.header__text p:nth-child(2):hover {
+  opacity: 1;
+}
+.header__text p:nth-child(1) {
+  opacity: 1;
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.header__clock,
+.header__different {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.clock__icon {
+  width: 16px;
+  height: 16px;
+  padding: 4px;
+  background-color: #a30cb1;
+  border-radius: 50%;
+  color: #fff;
+}
+.clock__sub,
+.different__sub {
+  display: none;
+  animation: opacityanimation linear 0.3s;
+}
+.clock__sub::after,
+.different__sub::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 4px;
+  border: 8px solid;
+  border-color: transparent transparent #423f3f transparent;
+}
+.clock__sub span,
+.different__sub span {
+  position: absolute;
+  font-size: 0.9rem;
+  color: #fff;
+  padding: 6px;
+  background-color: #423f3f;
+  border-radius: 5px;
+}
+.clock__sub span {
+  white-space: nowrap;
+  transform: translateX(-50%) translateY(30%);
+}
+.header__clock:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+.header__clock:hover .clock__sub,
+.header__different:hover .different__sub {
+  display: block;
+}
+.different__sub span {
+  transform: translate(-20%, 30%);
+}
+
+.icon__sidebar-more {
+  font-size: 1rem;
+  color: #fff;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: rgba(204, 204, 204, 0.2);
+  cursor: pointer;
+}
+
+.content__play-now,
+.suggest__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+  background-color: #a30cb1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.content__play-now:hover .content__play-icon {
+  opacity: 1;
+}
+.content__play-info {
+  display: flex;
+  align-items: center;
+  max-width: 160px;
+  height: 100%;
+  margin-left: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content__play-title h4 a,
+.content__play-info .subtitle__link {
+  width: 120px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+.content__play-avt {
+  height: 70%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.content__play-avt-img {
+  width: 36px;
+  height: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.play__icon {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 100;
+}
+.play__icon i {
+  color: #fff;
+  font-size: 1.4rem;
+}
+.play__icon i:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.avt__cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(1, 1, 1, 0.24);
+  border-radius: 4px;
+}
+
+.content__play-title h4 {
+  padding: 0 0 5px 5px;
+}
+.content__play-title h4 a {
+  font-size: 1.4rem;
+}
+
+.content__play-title h3 a {
+  font-size: 1.2rem;
+  color: #fff;
+}
+.content__play-title h3 a:hover {
+  color: #fff;
+}
+
+.content__play-icon {
+  display: flex;
+  opacity: 0;
+}
+.play__icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.icon__heart,
+.icon__more,
+.play-outline {
+  color: #fff;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+}
+.icon__heart,
+.play-outline {
+  right: 20px;
+}
+.icon__more {
+  right: 0;
+}
+.icon__more:hover,
+.icon__heart:hover {
+  background-color: rgba(204, 204, 204, 0.2);
+  cursor: pointer;
+}
+.sub__heart,
+.sub__more {
+  display: none;
+  animation: opacityanimation linear 0.3s;
+}
+.sub__heart span,
+.sub__more span {
+  color: #fff;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #423f3f;
+  position: absolute;
+  bottom: 16px;
+}
+.sub__heart span {
+  right: 10px;
+}
+.sub__more span {
+  right: -2px;
+}
+.sub__more span::before,
+.sub__heart span::before {
+  content: "";
+  border: 8px solid;
+  border-color: #423f3f transparent transparent transparent;
+}
+.sub__heart span::before {
+  position: absolute;
+  bottom: -13px;
+  right: 12px;
+}
+.sub__more span::before {
+  position: absolute;
+  bottom: -13px;
+  right: 5px;
+}
+.play__icon-item:nth-child(1):hover .sub__heart,
+.play__icon-item:nth-child(2):hover .sub__more {
+  display: block;
+}
+
+.content__suggest {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+.suggest__heading h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 600;
+}
+.suggest__heading h4 {
+  padding: 6px 0;
+  font-size: 1.3rem;
+  color: #888;
+  font-weight: 500;
+}
+.link__playlist {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #37075d;
+}
+.heading__playlist .content__play-now {
+  margin-top: 8px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.heading__playlist .play__icon,
+.heading__playlist .avt__cover {
+  display: none;
+}
+.heading__playlist .content__play-now:hover {
+  background-color: rgba(255, 255, 255, 0.233);
+}
+.heading__playlist .content__play-now:hover .play__icon,
+.heading__playlist .content__play-now:hover .avt__cover {
+  display: block;
+}
+
+.suggest__list {
+  margin: 20px 0;
+  height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden scroll; */
+}
+.title__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title__list h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 500;
+}
+.auto__play {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.auto__play p {
+  color: #999;
+  font-size: 1rem;
+  padding: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.reload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.reload__sub {
+  position: absolute;
+  bottom: 26px;
+  left: -20px;
+  white-space: nowrap;
+  animation: opacityanimation linear 0.2s;
+  display: none;
+}
+.reload__sub span {
+  font-size: 1rem;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #423f3f;
+}
+.reload__sub span::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 18px;
+  border: 8px solid;
+  border-color: #423f3f transparent transparent transparent;
+}
+.ti-reload {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-right: 10px;
+}
+.ti-reload:hover {
+  cursor: pointer;
+  color: #a30cb1;
+}
+.reload:hover .reload__sub {
+  display: block;
+}
+.content__list-suggest {
+  height: calc(100vh - 90px);
+  margin-top: 10px;
+  overflow: hidden scroll;
+}
+.content__list-suggest::-webkit-scrollbar {
+  display: none;
+}
+.suggest__item {
+  background-color: rgba(255, 255, 255, 0);
+}
+.suggest__item:hover,
+.suggest__item.active {
+  background-color: rgba(255, 255, 255, 0.233);
+}
+.suggest__item.active .suggest__item .play__icon,
+.suggest__item .avt__cover {
+  display: none;
+}
+.suggest__item:hover .play__icon,
+.suggest__item:hover .avt__cover {
+  display: block;
+}
+.suggest__item .content__play-icon {
+  opacity: 1;
+}
+.play-outline {
+  width: 18px;
+  height: 18px;
+  padding: 2px 3px;
+  color: #fff;
+  border-radius: 50%;
+}
+.play-outline:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
